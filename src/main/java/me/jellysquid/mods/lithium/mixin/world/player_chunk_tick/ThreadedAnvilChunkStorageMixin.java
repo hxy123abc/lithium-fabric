@@ -23,7 +23,7 @@ public abstract class ThreadedAnvilChunkStorageMixin {
      * @reason Defer sending chunks to the player so that we can batch them together
      */
     @Overwrite
-    public void updateCameraPosition(ServerPlayerEntity player) {
+    public void updatePosition(ServerPlayerEntity player) {
         for (ThreadedAnvilChunkStorage.EntityTracker tracker : this.entityTrackers.values()) {
             if (tracker.entity == player) {
                 tracker.updateCameraPosition(this.world.getPlayers());
@@ -32,7 +32,7 @@ public abstract class ThreadedAnvilChunkStorageMixin {
             }
         }
 
-        ChunkSectionPos oldPos = player.getCameraPosition();
+        ChunkSectionPos oldPos = player.getWatchedSection();
         ChunkSectionPos newPos = ChunkSectionPos.from(player);
 
         boolean isWatchingWorld = this.playerChunkWatchingManager.isWatchDisabled(player);

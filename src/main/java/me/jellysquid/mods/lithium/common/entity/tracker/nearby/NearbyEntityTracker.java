@@ -3,7 +3,7 @@ package me.jellysquid.mods.lithium.common.entity.tracker.nearby;
 import it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.TargetPredicate;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 
@@ -89,6 +89,6 @@ public class NearbyEntityTracker<T extends LivingEntity> implements NearbyEntity
 
     @Override
     public String toString() {
-        return super.toString() + " for entity class: " + this.clazz.getName() + ", in rangeSq: " + this.rangeSq + ", around entity: " + this.self.toString() + " with NBT: " + this.self.toTag(new CompoundTag());
+        return super.toString() + " for entity class: " + this.clazz.getName() + ", in rangeSq: " + this.rangeSq + ", around entity: " + this.self.toString() + " with NBT: " + this.self.writeNbt(new NbtCompound());
     }
 }

@@ -78,7 +78,7 @@ public class EntityShapeContextMixin {
      * @reason allow skipping unused lambda allocation
      */
     @Overwrite
-    public boolean method_27866(FluidState aboveState, FlowableFluid fluid) {
+    public boolean canWalkOnFluid(FluidState aboveState, FlowableFluid fluid) {
         return this.lithium_entity instanceof LivingEntity && ((LivingEntity) this.lithium_entity).canWalkOnFluid(fluid) && !aboveState.getFluid().matchesType(fluid);
     }
 }
